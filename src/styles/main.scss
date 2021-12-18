@@ -1,11 +1,23 @@
 @use './user-forms.scss';
 
+$gradient-green: rgb(67, 198, 172);
+$gradient-green-darker: rgb(28, 151, 126);
+$gradient-navy: rgb(26, 22, 85);
+
 * {
   box-sizing: border-box;
   margin: 0;
   font-family: 'Oswald', sans-serif;
+
 }
 
+body {
+  background: $gradient-green; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, $gradient-green, $gradient-navy); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, $gradient-green, $gradient-navy); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh;
+  background-size: cover; 
+}
 .no-show {
   display: none;
 }
