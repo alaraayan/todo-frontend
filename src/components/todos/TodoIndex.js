@@ -18,12 +18,15 @@ export default function TodoIndex() {
   }, [])
   
   return (
-    <div>
-      { todos && (
-        todos.map((todo, index) => {
-          return <p key={index}>{todo.todoItem}</p>
-        })
-      )}
-    </div>
+    <section className="todo-container">
+      <h1>I WILL LEMON THESE:</h1>
+      <ul className="todo-list">
+        { todos && (
+          todos.map((todo, index) => {
+            return <li key={index} className="todo-item">{todo.todoItem}</li>
+          })
+        )}
+      </ul>
+    </section>
   )
 }
