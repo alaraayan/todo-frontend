@@ -29,7 +29,7 @@ function Register() {
       const res = await loginUser(loginForm)
       setToken(res.data.token)
       toast.error('Successfully registered! Welcome!')
-      navigate('/')
+      navigate('/my-list')
     } catch (e) {
       setError(e.response.data.message)
     }

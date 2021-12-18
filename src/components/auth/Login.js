@@ -20,7 +20,7 @@ function Login() {
       const res = await loginUser(formData)
       setToken(res.data.token)
       
-      navigate('/')
+      navigate('/my-list')
       toast.error('Welcome back!')
     } catch (e) {
       setIsError(true)
