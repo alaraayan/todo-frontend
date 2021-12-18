@@ -100,4 +100,18 @@ button:focus {
   text-align: right;
   display: flex;
   justify-content: flex-end;
+}
+
+.quote-buttons {
+  display: block;
+  color: black;
+  height: fit-content;
+  &:hover{
+    cursor: pointer;
+    color:#bb5e1c; 
   }
+  &:focus{
+    color: white;
+    background-color: $gradient-green-darker;
+  }
+}
