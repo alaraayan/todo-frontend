@@ -2,7 +2,7 @@ import React from 'react'
 
 
 import { getTodoList } from '../../lib/api'
-import TodoDetail from './TodoDetail'
+import TodoCard from './TodoCard'
 
 export default function TodoIndex() {
   const [todos, setTodos] = React.useState([])
@@ -31,7 +31,7 @@ export default function TodoIndex() {
       <ul className="todo-list">
         { todos && (
           todos.map((todo, index) => {
-            return <TodoDetail key={index} todo={todo} index={index} setTodos={setTodos} />
+            return <TodoCard key={index} todo={todo} index={index} setTodos={setTodos} />
           })
         )}
       </ul>

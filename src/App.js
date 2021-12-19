@@ -5,6 +5,7 @@ import Home from './components/common/Home'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import TodoIndex from './components/todos/TodoIndex'
+import TodoDetail from './components/todos/TodoDetail'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
+        <Route path="my-list/todos/:todoId" element={<TodoDetail />} />
         <Route path="my-list" element={<TodoIndex />} />
       </Routes>
     </BrowserRouter>

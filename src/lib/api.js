@@ -34,3 +34,6 @@ export function getATodo(todoId) {
 export function updateATodo(todoId, formData) {
   return axios.put(`${baseUrl}/todos/${todoId}/`, formData, headers())
 }
+export function deleteATodo(todoId) {
+  return axios.delete(`${baseUrl}/todos/${todoId}/`, headers())
+}

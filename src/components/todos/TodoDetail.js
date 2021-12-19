@@ -1,22 +1,41 @@
-import { getTodoList, getATodo, updateATodo } from '../../lib/api'
+import React from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 
-export default function TodoDetail({
-  todo, index, setTodos }) {
+import { deleteATodo, getATodo } from '../../lib/api'
 
-  const handleCheck = async (e) => {
-    const todoId = e.target.dataset.todo
-    const todoToMarkComplete = await getATodo(todoId)
-    const formData = { ...todoToMarkComplete.data, isDone: true }
-    await updateATodo(todoId, formData)
-    const res = await getTodoList()
-    setTodos(res.data.filter(todo => todo.isDone === false))
+
+export default function TodoDetail() {
+  const { todoId } = useParams()
+  const navigate = useNavigate()
+  const [todo, setTodo] = React.useState([])
+
+  React.useEffect(() => {
+    const getTodoData = async () => {
+      try {
+        const res = await getATodo(todoId)
+        setTodo(res.data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getTodoData()
+  }, [todoId])
+  
+  const handleDelete = async () => {
+    try {
+      await deleteATodo(todoId)
+      navigate('/my-list')
+    } catch (err) {
+      console.log(err)
+    }
   }
-
   
   return (
-    <div key={index} className="todo-item-container">
-      <span className="material-icons todo-check" data-todo={todo.id} onClick={handleCheck}>check_circle_outline</span>
-      <li  className="todo-item">{todo.todoItem}</li>
-    </div>
+    <section className="todo-container">
+      <div className="todo-item-container">
+        <li  className="todo-item">{todo.todoItem}</li>
+        <span className="material-icons" onClick={handleDelete}>remove_circle_outline</span>
+      </div>
+    </section>
   )
 }
