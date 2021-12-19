@@ -35,3 +35,8 @@ body {
   display: none;
 }
 
+.centered-flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

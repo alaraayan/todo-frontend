@@ -112,16 +112,3 @@ button:focus {
   justify-content: flex-end;
 }
 
-.quote-buttons {
-  display: block;
-  color: black;
-  height: fit-content;
-  &:hover{
-    cursor: pointer;
-    color:$banana; 
-  }
-  &:focus{
-    color: white;
-    background-color: $gradient-green-darker;
-  }
-}
