@@ -25,6 +25,9 @@ export function loginUser(formData) {
 export function getTodoList() {
   return axios.get(`${baseUrl}/todos/`, headers())
 }
+export function createATodo(formData) {
+  return axios.post(`${baseUrl}/todos/`, formData, headers())
+}
 
 // * TODO ITEM REQUESTS
 

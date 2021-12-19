@@ -3,6 +3,7 @@ import React from 'react'
 
 import { getTodoList } from '../../lib/api'
 import TodoCard from './TodoCard'
+import NewTodo from './NewTodo'
 
 export default function TodoIndex() {
   const [todos, setTodos] = React.useState([])
@@ -28,6 +29,7 @@ export default function TodoIndex() {
   return (
     <section className="todo-container">
       <h1>I WILL LEMON THESE:</h1>
+      <NewTodo setTodos={setTodos} todos={todos}/>
       <ul className="todo-list">
         { todos && (
           todos.map((todo, index) => {
