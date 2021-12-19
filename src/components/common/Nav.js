@@ -68,7 +68,7 @@ export default function Nav() {
             <>
               <NavLink to="/my-list" text="To-Do List" icon={faClipboardList} />
               <NavLink
-                to="/saved-for-later"
+                to="/my-list/saved"
                 text="Saved Items"
                 icon={faUmbrellaBeach}
               />

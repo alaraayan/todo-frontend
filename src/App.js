@@ -7,6 +7,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import TodoIndex from './components/todos/TodoIndex'
 import TodoDetail from './components/todos/TodoDetail'
+import SavedForLaterIndex from './components/todos/SavedForLaterIndex'
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
         <Route path="my-list/todos/:todoId" element={<TodoDetail />} />
+        <Route path="/my-list/saved" element={<SavedForLaterIndex />} />
         <Route path="my-list" element={<TodoIndex />} />
+
       </Routes>
     </BrowserRouter>
   )
