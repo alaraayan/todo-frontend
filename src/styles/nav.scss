@@ -1,0 +1,89 @@
+$off-white: rgb(247, 247, 247);
+$white-transparent: rgba(247, 247, 247, 0.658);
+$off-black: #100f10;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px;
+  color: white;
+  height: 40px;
+  z-index: 3;
+  transition-timing-function: ease-in;
+  transition: all 0.8s;
+  align-items: center;
+}
+
+.navbar-show-color {
+  background: $off-white;
+  color: $off-black;
+}
+
+.navbar-default-color {
+  background: $off-white;
+  color: rgb(108, 110, 228);
+}
+
+.navbar > img {
+  position: fixed;
+  left: 1em;
+}
+
+.navbar > div {
+  right: 1em;
+}
+
+/* Side navbar styling */
+.side-nav-menu-container {
+  width: 250px;
+  color: $off-black;
+  background-color: $off-white;
+  height: auto;
+  position: fixed;
+  z-index: 2;
+  right: -100%;
+  padding: 20px 30px;
+  border-radius: 0 0 0 20px;
+}
+
+.side-nav-menu-container.active {
+  right: 0;
+  transition: all 0.4s;
+}
+
+// .navbar-content-container > li {
+//   width: 100%;
+//   height: 70px;
+//   display: flex;
+//   text-align: left;
+// }
+// .navbar-content-container > ul {
+//   margin: 50px;
+// }
+
+.navbar-item {
+  color: $off-black;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.navbar-item:hover {
+  color: #7b81ec;
+}
+
+.navbar-content-container {
+  width: 100%;
+}
+
+// Font awesome icons
+.fa-items-icon {
+  margin-right: 9px;
+  cursor: pointer;
+}
+
+.logout-link {
+  cursor: pointer;
+}
