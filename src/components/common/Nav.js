@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import Hamburger from 'hamburger-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faHome,
-  faUsers,
-  faUserPlus,
-  faSignOutAlt,
-  // faRocket
-  faUmbrellaBeach,
-  faClipboardList
-
-} from '@fortawesome/free-solid-svg-icons'
+// import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { 
+  faSpaceStationMoonAlt, 
+  faJournalWhills, 
+  faCatSpace, 
+  faSwordLaser, 
+  faJedi,
+  faStarfighter 
+} from '@fortawesome/pro-solid-svg-icons'
 import { Link, useNavigate } from 'react-router-dom'
 import { isAuthenticated, removeToken } from '../../lib/auth'
 // import logo from '../../assets/zenithLogo.png'
@@ -19,7 +18,6 @@ export default function Nav() {
   const navigate = useNavigate()
   // const location = useLocation()
   const isLoggedIn = isAuthenticated()
-  const [showColor, setShowColor] = React.useState(false)
   const [sidebarShow, setSidebarShow] = useState(false)
 
   const handleSideBar = () => setSidebarShow(!sidebarShow)
@@ -29,28 +27,15 @@ export default function Nav() {
     navigate('/')
   }
 
-  React.useEffect(() => {
-    const scrollListener = () => {
-      window.scrollY > 150 ? setShowColor(true) : setShowColor(false)
-    }
-    window.addEventListener('scroll', scrollListener)
-    return () => {
-      window.removeEventListener('scroll', scrollListener)
-    }
-  }, [])
 
   return (
     <>
-      <div
-        className={`navbar ${
-          showColor ? 'navbar-show-color' : 'navbar-default-color'
-        }`}
-      >
-        <Link to="/">
+      <div className="navbar">
+        {/* <Link to="/">
           <h1>
-            SITH HAPPENS
+            GET SITH DONE
           </h1>
-        </Link>
+        </Link> */}
         <div className="menu-items-end" onClick={handleSideBar}>
           <Hamburger toggled={sidebarShow} toggle={setSidebarShow} />
         </div>
@@ -63,27 +48,27 @@ export default function Nav() {
         }
       >
         <div className="navbar-content-container" onClick={handleSideBar}>
-          <NavLink to="/" icon={faHome} text="Home" />
+          <NavLink to="/" icon={faSpaceStationMoonAlt} text="Home" />
           {isLoggedIn ? (
             <>
-              <NavLink to="/my-list" text="To-Do List" icon={faClipboardList} />
+              <NavLink to="/my-list" text="To-Do List" icon={faJournalWhills} />
               <NavLink
                 to="/my-list/saved"
                 text="Saved Items"
-                icon={faUmbrellaBeach}
+                icon={faCatSpace}
               />
               <p className="navbar-item logout-link" onClick={handleLogout}>
                 <FontAwesomeIcon
                   className="fa-items-icon"
-                  icon={faSignOutAlt}
+                  icon={faSwordLaser}
                 />
                 Log out
               </p>
             </>
           ) : (
             <>
-              <NavLink to="/register" icon={faUserPlus} text="Register" />
-              <NavLink to="/login" icon={faUsers} text="Login" />
+              <NavLink to="/register" icon={faJedi} text="Register" />
+              <NavLink to="/login" icon={faStarfighter} text="Login" />
             </>
           )}
         </div>
