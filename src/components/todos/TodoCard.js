@@ -5,12 +5,16 @@ export default function TodoCard({
   todo, setTodos }) {
 
   const handleCheck = async (e) => {
-    const todoId = e.target.dataset.todo
-    const todoToMarkComplete = await getATodo(todoId)
-    const formData = { ...todoToMarkComplete.data, isDone: true }
-    await updateATodo(todoId, formData)
-    const res = await getTodoList()
-    setTodos(res.data.filter(todo => todo.isDone === false))
+    try {
+      const todoId = e.target.dataset.todo
+      const todoToMarkComplete = await getATodo(todoId)
+      const formData = { ...todoToMarkComplete.data, isDone: true }
+      await updateATodo(todoId, formData)
+      const res = await getTodoList()
+      setTodos(res.data.filter(todo => (todo.isDone === false && todo.isActive === true)))
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   

@@ -12,7 +12,7 @@ export default function TodoIndex() {
       try {
         const res = await getTodoList()
         const onlyTodos = res.data.filter(todo => {
-          return todo.isDone === false
+          return (todo.isDone === false && todo.isActive === true)
         })
         setTodos(onlyTodos)
       } catch (err) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-import { deleteATodo, getATodo } from '../../lib/api'
+import { deleteATodo, getATodo, updateATodo } from '../../lib/api'
 
 
 export default function TodoDetail() {
@@ -29,12 +29,23 @@ export default function TodoDetail() {
       console.log(err)
     }
   }
-  
+  const handleSaveForLater = async () => {
+    try {
+      const todoToMarkComplete = await getATodo(todoId)
+      const formData = { ...todoToMarkComplete.data, isActive: false }
+      await updateATodo(todoId, formData)
+      navigate('/my-list')
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <section className="todo-container">
       <div className="todo-item-container">
         <li  className="todo-item">{todo.todoItem}</li>
         <span className="material-icons" onClick={handleDelete}>remove_circle_outline</span>
+        <span className="material-icons" onClick={handleSaveForLater}>schedule</span>
       </div>
     </section>
   )
