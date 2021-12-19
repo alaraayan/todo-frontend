@@ -1,9 +1,11 @@
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
+import Button from '../common/Button'
 import { loginUser } from '../../lib/api'
 import { setToken } from '../../lib/auth'
 import useForm  from '../../hooks/useForm'
-import { ToastContainer, toast } from 'react-toastify'
 
 function Login() {
   const navigate = useNavigate()
@@ -58,11 +60,7 @@ function Login() {
             </p>
           )}
         
-          <div>
-            <button type="submit" className="user-form submit-button">
-            Log In
-            </button>
-          </div>
+          <Button text="Login" />
             
         </form>
         <footer>

@@ -1,6 +1,7 @@
 @use './user-forms.scss';
 @use './todo-list.scss';
 @use './nav.scss';
+@use './home.scss';
 
 
 $gradient-green: rgb(67, 198, 172);
@@ -33,3 +34,4 @@ body {
 .no-show {
   display: none;
 }
+

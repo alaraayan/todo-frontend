@@ -2,6 +2,7 @@ import React from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 
+import Button from '../common/Button'
 import useForm from '../../hooks/useForm'
 import { registerUser, loginUser } from '../../lib/api'
 import { setToken } from '../../lib/auth'
@@ -96,12 +97,7 @@ function Register() {
             )}
           </div>
           {error && <p>{error}</p>}
-          <div>
-            <button type="click" className="user-form submit-button">
-            Register
-            </button>
-            
-          </div>
+          <Button text="Register" />
           
           <footer>
             <h5>Already a member? <span><Link to="/login">Login instead.</Link></span> </h5>

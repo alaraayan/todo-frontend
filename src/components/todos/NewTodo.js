@@ -3,7 +3,7 @@ import React from 'react'
 
 import { createATodo } from '../../lib/api'
 import useForm from '../../hooks/useForm'
-
+// import Button from '../common/Button'
 
 export default function NewTodo({ todos, setTodos }) {
   const { formData, setFormData, formErrors, handleChange } = useForm({
@@ -42,6 +42,7 @@ export default function NewTodo({ todos, setTodos }) {
         </button>
             
       </div>
+      {/* <Button style={{ display: 'none' }} /> */}
     </form>
   )
 }
