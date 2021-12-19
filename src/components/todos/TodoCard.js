@@ -20,8 +20,18 @@ export default function TodoCard({
   
   return (
     <div className="todo-item-container">
-      <span className="material-icons todo-check" data-todo={todo.id} onClick={handleCheck}>check_circle_outline</span>
-      <Link to={`/my-list/todos/${todo.id}`}><li  className="todo-item">{todo.todoItem}</li></Link>
+      <span 
+        className="material-icons todo-check" 
+        data-todo={todo.id} 
+        onClick={handleCheck}
+      >
+        check_circle_outline
+      </span>
+      <Link to={`/my-list/todos/${todo.id}`}>
+        <li  className="todo-item">
+          {todo.todoItem}
+        </li>
+      </Link>
     </div>
   )
 }

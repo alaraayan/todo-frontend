@@ -28,7 +28,7 @@ export default function TodoIndex() {
   console.log(todos)
   return (
     <section className="todo-container">
-      <h1>I WILL LEMON THESE:</h1>
+      <h1>MAY THE FORCE BE WITH YOU...</h1>
       <NewTodo setTodos={setTodos} todos={todos}/>
       <ul className="todo-list">
         { todos && (

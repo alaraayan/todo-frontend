@@ -1,33 +1,62 @@
+$off-black: rgba(24, 22, 22, 0.61);
+$sith: rgb(184, 8, 8);
+$light-grey: rgba(255, 255, 255, 0.808);
+$banana: rgb(255, 232, 31);
+
 .todo-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20%;
+  background-color: $off-black;
+  padding: 60px;
+  padding-right: 90px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.7rem;
+  color: white;
+  position: fixed;
   .todo-item-container {
     display: flex;
     align-items: center;
   }
   .todo-item{
-    color: #E86F16;
-    background-color: rgba(255, 255, 255, 0.671);
+    color: black;
+    background-color: $light-grey;
     outline: none;
-    width: 250px;
+    width: 300px;
     padding: 10px 10px;
     border-radius: 0.17rem;
     border: solid 1px transparent;
-    cursor: text;
+    cursor: pointer;
     margin: 5px 0;
     list-style: none;
     display: inline-block;
+    &:hover {
+      border: solid 1px $banana;
+    }
   }
 
   .todo-check {
     font-size: 38px;
     &:hover {
-      color: rgba(255, 255, 255, 0.671);
+      color: $banana;
+      color: #22BA1A;
       cursor: pointer;
     }
+  }
+
+  .new-todo{
+    width: 340px;
+    margin-left: 33px;
+    color: $sith;
+    font-size: 17px;
+    cursor: text;
+  }
+  ::placeholder{
+    color: $off-black;
   }
 }
 

@@ -26,9 +26,9 @@ export default function NewTodo({ todos, setTodos }) {
     <form onSubmit={handleSubmit}>
       <div>
         <input  
-          placeholder="What do you want to do next?"
+          placeholder="To do next what would you like? Here yes write."
           name="todoItem"
-          className="todo-item"
+          className="todo-item new-todo"
           value={formData.todoItem} 
           onChange={handleChange}
         />
