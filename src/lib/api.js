@@ -25,3 +25,12 @@ export function loginUser(formData) {
 export function getTodoList() {
   return axios.get(`${baseUrl}/todos/`, headers())
 }
+
+// * TODO ITEM REQUESTS
+
+export function getATodo(todoId) {
+  return axios.get(`${baseUrl}/todos/${todoId}/`, headers())
+}
+export function updateATodo(todoId, formData) {
+  return axios.put(`${baseUrl}/todos/${todoId}/`, formData, headers())
+}

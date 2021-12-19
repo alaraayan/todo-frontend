@@ -4,7 +4,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 20%;
-
+  .todo-item-container {
+    display: flex;
+    align-items: center;
+  }
   .todo-item{
     color: #E86F16;
     background-color: rgba(255, 255, 255, 0.671);
@@ -16,6 +19,15 @@
     cursor: text;
     margin: 5px 0;
     list-style: none;
+    display: inline-block;
+  }
+
+  .todo-check {
+    font-size: 38px;
+    &:hover {
+      color: rgba(255, 255, 255, 0.671);
+      cursor: pointer;
+    }
   }
 }
 
