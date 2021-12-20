@@ -22,7 +22,7 @@ $banana: rgb(255, 232, 31);
     display: flex;
     align-items: center;
   }
-  .todo-item{
+  .todo-item, .saved-item{
     color: black;
     background-color: $light-grey;
     outline: none;
@@ -34,9 +34,15 @@ $banana: rgb(255, 232, 31);
     margin: 5px 0;
     list-style: none;
     display: inline-block;
-    &:hover {
+  }
+
+  .todo-item:hover {
       border: solid 1px $banana;
-    }
+  }
+
+  .saved-item {
+    cursor: default;
+    margin-left: 5px;
   }
 
   .todo-check {
@@ -65,7 +71,7 @@ $banana: rgb(255, 232, 31);
     font-size: 17px;
   }
 
-  .delete-icon, .later-icon {
+  .delete-icon, .later-icon, .add-back-icon {
     font-size: 35px;
     &:hover {
       color: $sith;
@@ -76,8 +82,13 @@ $banana: rgb(255, 232, 31);
   .later-icon:hover {
     color: $banana;
   }
+  .add-back-icon:hover {
+    color: purple;
+  }
 
 }
+
+
 
 
 

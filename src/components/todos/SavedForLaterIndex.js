@@ -1,41 +1,67 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-
-import { getTodoList } from '../../lib/api'
-import TodoCard from './TodoCard'
+import { getTodoList, updateATodo, getATodo } from '../../lib/api'
+import Button from '../common/Button'
 
 
 export default function SavedForLaterIndex() {
-  const [todos, setTodos] = React.useState([])
+  const [savedLaterTodos, setSavedLaterTodos] = React.useState([])
   
   React.useEffect(() => {
     const getTodoData = async () => {
       try {
         const res = await getTodoList()
-        const onlyTodos = res.data.filter(todo => {
+        const onlySavedTodos = res.data.filter(todo => {
           return (todo.isDone === false && todo.isActive === false)
         })
-        setTodos(onlyTodos)
+        setSavedLaterTodos(onlySavedTodos)
       } catch (err) {
         console.log(err)
       }
     }
     getTodoData()
-  }, [setTodos])
+  }, [setSavedLaterTodos])
   
+  const handleAddToList = async (e) => {
+    try {
+      const todoId = e.target.dataset.todo
+      const todoToAddBackToList = await getATodo(todoId)
+      const formData = { ...todoToAddBackToList.data, isActive: true }
+      await updateATodo(todoId, formData)
+      const res = await getTodoList()
+      setSavedLaterTodos(res.data.filter(todo => (todo.isDone === false && todo.isActive === false)))
+    } catch (err) {
+      console.log(err)
+    }
+  }
   
 
-  console.log(todos)
+  console.log(savedLaterTodos)
   return (
-    <section className="todo-container">
-      <h1>I WILL LEMON THESE:</h1>
+    <section className="todo-container form-container">
+      <h1>READY TO TACKLE THESE? EASILY ADD ITEMS TO YOUR CURRENT LIST.</h1>
       <ul className="todo-list">
-        { todos && (
-          todos.map((todo, index) => {
-            return <TodoCard key={index} todo={todo} index={index} setTodos={setTodos} />
+        { savedLaterTodos && (
+          savedLaterTodos.map((todo, index) => {
+            return (
+              <div key={index} className="todo-item-container">
+                <span 
+                  className="material-icons add-back-icon" 
+                  data-todo={todo.id} 
+                  onClick={handleAddToList}
+                >
+                  add_task
+                </span>
+                <li  className="saved-item">
+                  {todo.todoItem}
+                </li>
+              </div>
+            )
           })
         )}
       </ul>
+      <Link to="/my-list" className="goback-container"><Button text="Go back to your list" /></Link>
     </section>
   )
 }

@@ -29,9 +29,9 @@ export default function TodoDetail() {
         
         <p>Edit, delete or save for later here</p>
         <div className="todo-item-container">
-          <UpdateTodo todo={todo} />
           <TodoDelete todoId={todoId}/>
           <SaveForLater todo={todo}/>
+          <UpdateTodo todo={todo} />
         </div>
       </section>}
     </>
