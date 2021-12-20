@@ -31,11 +31,6 @@ export default function Nav() {
   return (
     <>
       <div className="navbar">
-        {/* <Link to="/">
-          <h1>
-            GET SITH DONE
-          </h1>
-        </Link> */}
         <div className="menu-items-end" onClick={handleSideBar}>
           <Hamburger toggled={sidebarShow} toggle={setSidebarShow} />
         </div>
