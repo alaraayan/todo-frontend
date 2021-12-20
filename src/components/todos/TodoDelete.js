@@ -15,5 +15,7 @@ export default function TodoDelete({ todoId }) {
     }
   }
 
-  return <span className="material-icons delete-icon" onClick={handleDelete}>remove_circle_outline</span>
+  return <span className="material-icons delete-icon tooltip" onClick={handleDelete}>
+    <span className="tooltiptext tooltiptext-left">Delete forever</span>
+    remove_circle_outline</span>
 }

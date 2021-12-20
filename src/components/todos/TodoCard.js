@@ -21,14 +21,15 @@ export default function TodoCard({
   return (
     <div className="todo-item-container">
       <span 
-        className="material-icons todo-check" 
+        className="material-icons todo-check tooltip" 
         data-todo={todo.id} 
         onClick={handleCheck}
-      >
+      ><span className="tooltiptext tooltiptext-left">Mark as done</span>
         check_circle_outline
       </span>
-      <Link to={`/my-list/todos/${todo.id}`}>
-        <li  className="todo-item">
+      <Link to={`/my-list/todos/${todo.id}`} className="tooltip">
+        <span className="tooltiptext tooltiptext-right">Click to edit</span>
+        <li  className="todo-item tooltip">
           {todo.todoItem}
         </li>
       </Link>

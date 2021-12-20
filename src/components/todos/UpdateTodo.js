@@ -25,13 +25,15 @@ export default function UpdateTodo({ todo }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input  
-        placeholder="To do next what would you like? Here yes write."
-        name="todoItem"
-        className="todo-item edit"
-        defaultValue={todo.todoItem} 
-        onChange={handleBlur}
-      />
+      <div className="tooltip">
+        <input  
+          placeholder="To do next what would you like? Here yes write."
+          name="todoItem"
+          className="todo-item edit"
+          defaultValue={todo.todoItem} 
+          onChange={handleBlur}
+        /><span className="tooltiptext tooltiptext-right">Edit and save</span>
+      </div>
       <div>
         <button style={{ display: 'none' }} type="submit" className="user-form submit-button">
             Happy
