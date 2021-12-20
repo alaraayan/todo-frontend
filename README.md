@@ -1,24 +1,60 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) GA London React Template
+# <img src="public/favicon.ico" alt="logo" style="height:30px; width:30px"/> Star Wars themed simple to-do list | Full-stack app | Personal project
 
-## Update the Proxy Server
+## Getting Started
+- Clone or download the repo
 
-By default, the proxy server is set up to point at port 8000, if you need to do so update in `setupProxy.js` where commented.
+#### Frontend:
 
-## Using NPM
+- ```npm i``` to install any dependencies
 
-`npm run start` or `npm run dev`  to run the development server
+- ```npm run dev``` to launch the client site on localhost:3000
 
-`npm run build` to create a build directory
 
-## Using Yarn
+#### Backend: 
+To access the backend repository please [click here.](https://github.com/alaraayan/todo-backend)
 
-`yarn start` or `yarn dev`  to run the development server
+- ```pipenv shell``` to navigate into the virtual environment
 
-`yarn build` to create a build directory
+- ```python3 manage.py runserver``` to run the server on localhost:8000
 
-### ⚠️
+## Technologies Used
 
-To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`, rename the `.env.example` to `.env` and restart your development server. Note this will only change the behaviour of certain linter errors to now be warnings, and is added just to allow your code to compile in development. These errors should still be fixed and other errors will still result in the code being unable to compile
+**Frontend**
+
+- HTML5
+- CSS3, Sass 
+- React.js
+- JavaScript(ES6)
+- Dependencies installed: react-router-dom, react-toastify, react-loader-spinner, hamburger-react, fontawesome-pro
+- [GIPHY API](https://developers.giphy.com/)
+
+**Backend**
+
+- Python
+- Django
+- Django REST Framework
+
+**Database**
+
+- PostgreSQL
+
+**Dev Tools**
+
+- Git
+- GitHub
+- Google Chrome dev tools
+- VScode
+- ESlint
+
+## Future Features
+
+- Better error messages for the user.
+- Responsiveness.
+- Adding a markedDoneAt date field in the model so items marked done on the current day will be visible on the list.
+- Drag and drop
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[Favicon is licensed under](https://creativecommons.org/licenses/by/3.0/)
