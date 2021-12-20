@@ -26,6 +26,8 @@ export default function TodoDetail() {
     <>
       {todo && 
       <section className="todo-container">
+        
+        <p>Edit, delete or save for later here</p>
         <div className="todo-item-container">
           <UpdateTodo todo={todo} />
           <TodoDelete todoId={todoId}/>

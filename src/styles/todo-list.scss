@@ -1,6 +1,6 @@
 $off-black: rgba(24, 22, 22, 0.61);
 $sith: rgb(184, 8, 8);
-$light-grey: rgba(255, 255, 255, 0.808);
+$light-grey: rgba(255, 255, 255, 0.863);
 $banana: rgb(255, 232, 31);
 
 .todo-container{
@@ -51,13 +51,32 @@ $banana: rgb(255, 232, 31);
   .new-todo{
     width: 340px;
     margin-left: 33px;
-    color: $sith;
+    color: purple;
     font-size: 17px;
     cursor: text;
   }
   ::placeholder{
-    color: $off-black;
+    // color: $off-black;
+    color: purple;
   }
+
+  .edit {
+    cursor: text;
+    font-size: 17px;
+  }
+
+  .delete-icon, .later-icon {
+    font-size: 35px;
+    &:hover {
+      color: $sith;
+      cursor: pointer;
+    }
+  }
+
+  .later-icon:hover {
+    color: $banana;
+  }
+
 }
 
 

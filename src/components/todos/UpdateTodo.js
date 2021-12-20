@@ -26,9 +26,9 @@ export default function UpdateTodo({ todo }) {
   return (
     <form onSubmit={handleSubmit}>
       <input  
-        placeholder="What do you want to do next?"
+        placeholder="To do next what would you like? Here yes write."
         name="todoItem"
-        className="todo-item"
+        className="todo-item edit"
         defaultValue={todo.todoItem} 
         onChange={handleBlur}
       />

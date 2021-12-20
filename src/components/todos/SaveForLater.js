@@ -16,5 +16,5 @@ export default function SaveForLater({ todo }) {
     }
   }
 
-  return <span className="material-icons" onClick={handleSaveForLater}>schedule</span>
+  return <span className="material-icons later-icon" onClick={handleSaveForLater}>schedule</span>
 }
