@@ -7,8 +7,13 @@ export default function Logout() {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    removeToken()
-    navigate('/')
+    try {
+      removeToken()
+      navigate('/')
+    } catch (err) {
+      console.log(err)
+    }
+    
   }
 
   return (
@@ -21,8 +26,4 @@ export default function Logout() {
       </div>
     </section>
   )
-
-
-
-
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 
 import Nav from './components/common/Nav'
 import Home from './components/common/Home'
@@ -14,6 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="register" element={<Register />} />
@@ -22,7 +24,6 @@ function App() {
         <Route path="/my-list/saved" element={<SavedForLaterIndex />} />
         <Route path="my-list" element={<TodoIndex />} />
         <Route path="*" element={<NotFound />} />
-
       </Routes>
     </BrowserRouter>
   )

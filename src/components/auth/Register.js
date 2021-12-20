@@ -1,6 +1,7 @@
 import React from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Button from '../common/Button'
 import useForm from '../../hooks/useForm'
@@ -31,8 +32,16 @@ export default function Register() {
       }
       const res = await loginUser(loginForm)
       setToken(res.data.token)
-      toast.error('Successfully registered! Welcome!')
       navigate('/my-list')
+      toast.success('Successfully registered! Welcome!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
     } catch (e) {
       setError(e.response.data.message)
     }
@@ -110,8 +119,8 @@ export default function Register() {
               </footer>
         
             </section>
-            <ToastContainer />
           </form>
+          <ToastContainer />
         </section>
       }
     </>
