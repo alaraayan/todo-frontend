@@ -79,7 +79,7 @@ export default function Login() {
             
             </form>
             <footer>
-              <h5 className="user-form">Don't have an account? <span><Link to="/register">Register now</Link></span></h5>
+              <h5 className="user-form">Don&apos;t have an account? <span><Link to="/register">Register now</Link></span></h5>
             </footer>
         
           </section>
