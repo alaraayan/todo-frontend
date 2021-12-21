@@ -1,14 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { getTodoList, updateATodo, getATodo } from '../../lib/api'
 import Button from '../common/Button'
+import { isAuthenticated } from '../../lib/auth'
 
 
 export default function SavedForLaterIndex() {
   const [savedLaterTodos, setSavedLaterTodos] = React.useState([])
-  
+  const isLoggedIn = isAuthenticated()
+  const navigate = useNavigate()
+
   React.useEffect(() => {
+    if (!isLoggedIn) navigate('/login')
     const getTodoData = async () => {
       try {
         const res = await getTodoList()
@@ -21,7 +25,7 @@ export default function SavedForLaterIndex() {
       }
     }
     getTodoData()
-  }, [setSavedLaterTodos])
+  }, [setSavedLaterTodos, isLoggedIn, navigate])
   
   const handleAddToList = async (e) => {
     try {

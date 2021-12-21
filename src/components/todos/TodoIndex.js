@@ -1,14 +1,19 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
 
 import { getTodoList } from '../../lib/api'
+import { isAuthenticated } from '../../lib/auth'
 import TodoCard from './TodoCard'
 import NewTodo from './NewTodo'
 
+
 export default function TodoIndex() {
   const [todos, setTodos] = React.useState([])
+  const isLoggedIn = isAuthenticated()
+  const navigate = useNavigate()
   
   React.useEffect(() => {
+    if (!isLoggedIn) navigate('/login')
     const getTodoData = async () => {
       try {
         const res = await getTodoList()
@@ -21,12 +26,14 @@ export default function TodoIndex() {
       }
     }
     getTodoData()
-  }, [setTodos])
+  }, [setTodos, isLoggedIn, navigate])
   
   
 
   console.log(todos)
   return (
+    <>
+      {isLoggedIn && 
     <section className="todo-container">
       <h1>MAY THE FORCE BE WITH YOU...</h1>
       <NewTodo setTodos={setTodos} todos={todos}/>
@@ -38,5 +45,7 @@ export default function TodoIndex() {
         )}
       </ul>
     </section>
+      }
+    </>
   )
 }

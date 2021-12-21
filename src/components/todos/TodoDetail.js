@@ -1,7 +1,8 @@
 import React from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 
 import { getATodo } from '../../lib/api'
+import { isAuthenticated } from '../../lib/auth'
 import SaveForLater from './SaveForLater'
 import TodoDelete from './TodoDelete'
 import UpdateTodo from './UpdateTodo'
@@ -10,8 +11,11 @@ import Button from '../common/Button'
 export default function TodoDetail() {
   const { todoId } = useParams()
   const [todo, setTodo] = React.useState([])
+  const isLoggedIn = isAuthenticated()
+  const navigate = useNavigate()
 
   React.useEffect(() => {
+    if (!isLoggedIn) navigate('/login')
     const getTodoData = async () => {
       try {
         const res = await getATodo(todoId)
@@ -21,7 +25,7 @@ export default function TodoDetail() {
       }
     }
     getTodoData()
-  }, [todoId])
+  }, [todoId, navigate, isLoggedIn])
 
   return (
     <>
